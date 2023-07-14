@@ -7,9 +7,9 @@ int main() {
     int lastDigit;
     
     srand(time(0));
-    n = rand();
+    n = rand() % 1000;  // Generate a random number between 0 and 999
     
-    printf("Last digit of %d is ", n);
+    printf("Last digit of %d is %d ", n, n % 10);
     
     lastDigit = n % 10;
     
