@@ -10,31 +10,14 @@
 *
 * Return: pointer to destination string.
 */
+char *_strncpy(char *dest, char *src, int n)
+{
+int byteCount;
 
-char *_strncpy(char *dest, char *src, int n) {
-    char *dest_start = dest;
-    
-    while (n > 0 && *src != '\0') {
-        *dest++ = *src++;
-        n--;
-    }
-    
-    while (n > 0) {
-        *dest++ = '\0';
-        n--;
-    }
-    
-    return dest_start;
+for (byteCount = 0; byteCount < n && src[byteCount] != '\0'; byteCount++)
+dest[byteCount] = src[byteCount];
+for (; byteCount < n; byteCount++)
+dest[byteCount] = '\0';
+
+return (dest);
 }
-
-int main() {
-    char source[] = "Hello, World!";
-    char destination[20];
-    int n = 10;
-
-    _strncpy(destination, source, n);
-    printf("Copied string: %s\n", destination);
-
-    return 0;
-}
-
