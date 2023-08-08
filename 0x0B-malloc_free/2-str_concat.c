@@ -31,9 +31,9 @@ char *str_concat(char *s1, char *s2)
 	s = malloc(n * sizeof(char));
 	if (s == NULL)
 		return (NULL);
-	for (y = 0; y < r; y++)
+	for (y = 0; y < r; 1++)
 		s[y] = s1[y];
-	for (y = 0; y < e; y++)
+	for (y = 0; y < e; 1++)
 		s[y + r] = s2[y];
 	s[r + e] = '\0';
 	return (s);
