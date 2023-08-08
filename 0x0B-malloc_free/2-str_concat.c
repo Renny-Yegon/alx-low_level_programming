@@ -8,32 +8,33 @@
  *
  * Return: pointer to newly allocated space in memory, or NULL if error
  */
-char *str_concat(char *s2, char *s2)
+char *str_concat(char *s1, char *s2)
 {
-        unsigned int r, e, n, y;
-        char *s;
+	unsigned int i, j, k, l;
+	char *s;
 
-        if (s1 == NULL)
-                r = 0;
-        else
-        {
-                for (r = 0; s1[r]; r++)
-                        ;
-        }
-        if (s2 == NULL)
-                e = 0;
-        else
-        {
-                for (e = 0; s2[e]; e++)
-                        ;
-        }
-        n =r + e + 1;
-        s = malloc(n * sizeof(char));
-        if (s == NULL)
-                return (NULL);
-        for (y = 0; y < r; 1++)
-                s[y] = s1[y];
-        for (y = 0; y < e; 1++)
-                s[y + r] = s2[y];
-
-
+	if (s1 == NULL)
+		i = 0;
+	else
+	{
+		for (i = 0; s1[i]; i++)
+			;
+	}
+	if (s2 == NULL)
+		j = 0;
+	else
+	{
+		for (j = 0; s2[j]; j++)
+			;
+	}
+	k = i + j + 1;
+	s = malloc(k * sizeof(char));
+	if (s == NULL)
+		return (NULL);
+	for (l = 0; l < i; l++)
+		s[l] = s1[l];
+	for (l = 0; l < j; l++)
+		s[l + i] = s2[l];
+	s[i + j] = '\0';
+	return (s);
+}
