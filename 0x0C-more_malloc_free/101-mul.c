@@ -7,45 +7,45 @@
  */
 int main(int argc, char *argv[])
 {
-	char *r = argv[1];
-	char *e = argv[2];
+	char *f = argv[1];
+	char *s = argv[2];
 
 	if (argc != 3 || !onlyNumbers(f) || !onlyNumbers(s))
 	{
 		printf("Error\n");
 		exit(98);
 	}
-	if (*r == 48 || *e == 48)
+	if (*f == 48 || *s == 48)
 		printf("0\n");
 	else
-		multiply(e, r);
+		multiply(s, f);
 	return (0);
 }
 
 /**
  * multiply - multiplies two numbers and displays it
- * @r: first "number"
- * @e: second "number"
+ * @f: first "number"
+ * @s: second "number"
  */
-void multiply(char *r, char *e)
+void multiply(char *f, char *s)
 {
-	int t, len1, len2, total, rdigit, edigit, res = 0, tmp;
+	int i, len1, len2, total, fdigit, sdigit, res = 0, tmp;
 	int *ptr;
 
-	len1 = _strlen(r);
-	len2 = _strlen(e);
+	len1 = _strlen(f);
+	len2 = _strlen(s);
 	tmp = len2;
 	total = len1 + len2;
 	ptr = _calloc(sizeof(int), (len1 + len2));
 	for (len1--; len1 >= 0; len1--)
 	{
-		rdigit = r[len1] - '0';
+		fdigit = f[len1] - '0';
 		res = 0;
 		len2 = tmp;
 		for (len2--; len2 >= 0; len2--)
 		{
-			edigit = e[len2] - '0';
-			res += ptr[len2 + len1 + 1] + (rdigit * edigit);
+			sdigit = s[len2] - '0';
+			res += ptr[len2 + len1 + 1] + (fdigit * sdigit);
 			ptr[len1 + len2 + 1] = res % 10;
 			res /= 10;
 		}
@@ -57,8 +57,8 @@ void multiply(char *r, char *e)
 		ptr++;
 		total--;
 	}
-	for (t = 0; t < total; t++)
-		printf("%t", ptr[t]);
+	for (i = 0; i < total; i++)
+		printf("%i", ptr[i]);
 	printf("\n");
 }
 /**
