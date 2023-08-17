@@ -6,7 +6,7 @@
  */
 void print_all(const char * const format, ...)
 {
-	unsigned int r = 0;
+	unsigned int i = 0;
 	char *str, *sep = "";
 	va_list arguments;
 
@@ -15,13 +15,13 @@ void print_all(const char * const format, ...)
 	{
 		while (format[i])
 		{
-			switch (format[r])
+			switch (format[i])
 			{
 				case 'c':
 					printf("%s%c", sep, va_arg(arguments, int));
 					break;
-				case 'r':
-					printf("%s%r", sep, va_arg(arguments, int));
+				case 'i':
+					printf("%s%i", sep, va_arg(arguments, int));
 					break;
 				case 'f':
 					printf("%s%f", sep, va_arg(arguments, double));
@@ -33,11 +33,11 @@ void print_all(const char * const format, ...)
 					printf("%s%s", sep, str);
 					break;
 				default:
-					r++;
+					i++;
 					continue;
 			}
 			sep = ", ";
-			r++;
+			i++;
 		}
 	}
 	printf("\n");
